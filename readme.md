@@ -36,3 +36,4 @@ We have a sample react application which shows you basic examples of Dream.mf pa
 - Azure Architecture: [Cloud Architecture in Azure](/arch/cloud-azure.md)
 - Package: [Core Runtime Library](/packages/dmf-core.md)
 - Package: [Logging Library](/packages/dmf-logging.md)
+- Package: [Bundlers Library](/packages/dmf-bundlers.md)

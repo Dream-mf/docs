@@ -26,4 +26,5 @@ This basic overview is designed to give users an introduction to the Dream.mf fr
 
 ## Glossary
 
+- Package: [Core Runtime Library](/packages/dmf-core.md)
 - Package: [Logging Library](/packages/dmf-logging.md)

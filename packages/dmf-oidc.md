@@ -235,7 +235,3 @@ const ProfileRemote = () => <div>Profile Content</div>;
 
 export default ProfilePage;
 ```
-
----
-
-This should provide a comprehensive guide on how to use the OIDC authentication package in Dream.mf. Feel free to adjust according to your specific needs!

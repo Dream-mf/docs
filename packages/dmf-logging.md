@@ -1,57 +1,118 @@
-Sure, here is the documentation for the logging package in your Dream.mf framework:
+# Dream.mf Logging Package Documentation
 
+The Dream.mf logging package provides logging and log listener functionality that can be used independently in your application or within other Dream.mf packages. This includes a log listener for the host, configured against your log aggregator, and supports multiple aggregators. This allows your remote to use the log client directly with minimal setup.
 
-# Dream.mf Logging Package
+## Installation
 
-## Overview
+To install the Dream.mf logging package, you should include it as a dependency in your project.
 
-The logging package in Dream.mf provides a standardized way to log various events and errors across your application. It offers functions to log different types of events and configurations to handle these logs in custom ways.
-
-## Interfaces
-
-### LogConfig
-
-```typescript
-interface LogConfig {
-  debug: Boolean;
-  logGeneral: Function | undefined;
-  logAuthentication: Function | undefined;
-  logException: Function | undefined;
-  logPageView: Function | undefined;
-  logFetch: Function | undefined;
-  logEvent: Function | undefined;
-  logFederation: Function | undefined;
-}
+```bash
+npm install dream.mf-logging
 ```
 
-#### Properties
+## Log Configuration
 
-- **debug**: Boolean flag to enable or disable debug mode.
-- **logGeneral**: Function invoked when a general log is recorded.
-- **logAuthentication**: Function invoked when an authentication log is recorded.
-- **logException**: Function invoked when an exception log is recorded.
-- **logPageView**: Function invoked when a page view log is recorded.
-- **logFetch**: Function invoked when a fetch log is recorded.
-- **logEvent**: Function invoked when a generic event log is recorded.
-- **logFederation**: Function invoked when a federation log is recorded.
+The `logConfig` object provides settings and callback functions for the log listener.
 
-### LogListenerProps
+### Example
 
-```typescript
-interface LogListenerProps {
-  config: LogConfig;
-}
+```javascript
+import { logConfig } from 'dream.mf-logging';
+
+const myLogConfig = {
+  ...logConfig,
+  debug: true,
+  logGeneral: (data) => {
+    // handle general logs
+  },
+  logException: (data) => {
+    // handle exceptions
+  },
+  // Add other log handlers as needed
+};
 ```
 
-#### Properties
+## Log Listener
 
-- **config**: Configuration object of type `LogConfig`.
+The `DreamMFLogListener` subscribes to global log events and applies your own log aggregator.
+
+### Usage
+
+```javascript
+import { DreamMFLogListener } from 'dream.mf-logging';
+
+const App = () => {
+  const config = {
+    debug: true,
+    logGeneral: (event) => console.log("General log: ", event.detail),
+    logException: (event) => console.log("Exception log: ", event.detail),
+    // Add other log handlers as needed
+  };
+
+  return (
+    <div>
+      <DreamMFLogListener config={config} />
+      {/* rest of your app */}
+    </div>
+  );
+};
+```
+
+## Log Client
+
+The `DreamMFLogClient` provides function calls for logging specific event types.
+
+### Methods
+
+- `logGeneral(detail)`
+- `logAuthentication(detail)`
+- `logException(detail, exception)`
+- `logEvent(detail)`
+- `logFetch(detail)`
+- `logPageView(detail)`
+- `logFederation(url, scope, module)`
+- `log(detail, loggerType)`
+
+### Example
+
+```javascript
+import { DreamMFLogClient } from 'dream.mf-logging';
+
+DreamMFLogClient.logGeneral({ message: "This is a general log" });
+DreamMFLogClient.logException({ message: "This is an exception log" }, new Error("Exception occurred"));
+DreamMFLogClient.logFetch({ url: "/api/data", status: 200 });
+```
+
+## Register and Deregister Listeners
+
+Utility functions to register and deregister event listeners for logging.
+
+### Usage
+
+```javascript
+import { RegisterListeners, DeregisterListeners } from 'dream.mf-logging';
+
+const config = {
+  debug: true,
+  logGeneral: (event) => console.log("General log: ", event.detail),
+  logException: (event) => console.log("Exception log: ", event.detail),
+  // Add other log handlers as needed
+};
+
+// Register listeners
+RegisterListeners(config);
+
+// Deregister listeners when no longer needed
+DeregisterListeners(config);
+```
 
 ## Constants
 
 ### LogLevel
 
-```typescript
+Defines log levels.
+
+```javascript
 const LogLevel = {
   Information: 0,
   Warning: 1,
@@ -59,11 +120,11 @@ const LogLevel = {
 };
 ```
 
-Enumeration for different log levels (Work in Progress and not used yet).
-
 ### LogType
 
-```typescript
+Defines log types used in custom events.
+
+```javascript
 const LogType = {
   General: "GENERAL",
   Authentication: "AUTHENTICATION",
@@ -75,124 +136,42 @@ const LogType = {
 };
 ```
 
-Enumeration for different types of log events.
+### Debug Prefix
 
-## Functions
+Prefix used for debug messages. 
 
-### DreamMFLogClient
+```javascript
+const debugPrefix = `[DREAM.MF-LOGGER]`;
+```
 
-```typescript
-const DreamMFLogClient = {
-  logGeneral: (detail) => { /* implementation */ },
-  logAuthentication: (detail) => { /* implementation */ },
-  logException: (detail, exception) => { /* implementation */ },
-  logEvent: (detail) => { /* implementation */ },
-  logFetch: (detail) => { /* implementation */ },
-  logPageView: (detail) => { /* implementation */ },
-  logFederation: (url, scope, module) => { /* implementation */ },
-  log: (detail, loggerType) => { /* implementation */ },
+### Example
+
+```javascript
+console.log(`${debugPrefix} This is a debug message`);
+```
+
+## Summary
+
+The Dream.mf logging package provides a comprehensive logging solution integrated with your module federation setup. By using the out-of-the-box configurations, listener registration, and client logging methods, you can implement a robust logging mechanism with minimal setup. 
+
+```javascript
+import { logConfig, DreamMFLogListener, DreamMFLogClient } from 'dream.mf-logging';
+
+const logConfiguration = {
+  ...logConfig,
+  debug: true,
+  logGeneral: (data) => console.log("General: ", data),
+  logException: (data) => console.log("Exception: ", data),
 };
+
+const App = () => (
+  <div>
+    <DreamMFLogListener config={logConfiguration} />
+    {/* Application components here */}
+  </div>
+);
+
+// Usage Example of Log Client
+DreamMFLogClient.logGeneral({ message: "Application started" });
 ```
-
-#### logGeneral
-
-Logs a general event.
-
-- **Parameters**: 
-  - `detail` (any): Details of the event to log.
-
-#### logAuthentication
-
-Logs an authentication event.
-
-- **Parameters**: 
-  - `detail` (any): Details of the event to log.
-
-#### logException
-
-Logs an exception event.
-
-- **Parameters**: 
-  - `detail` (any): Details of the event to log.
-  - `exception` (Error): The exception to log.
-
-#### logEvent
-
-Logs a generic event.
-
-- **Parameters**: 
-  - `detail` (any): Details of the event to log.
-
-#### logFetch
-
-Logs a fetch event.
-
-- **Parameters**: 
-  - `detail` (any): Details of the event to log.
-
-#### logPageView
-
-Logs a page view event.
-
-- **Parameters**: 
-  - `detail` (any): Details of the event to log.
-
-#### logFederation
-
-Logs a federation event.
-
-- **Parameters**: 
-  - `url` (string): The URL of the federation.
-  - `scope` (string): The scope of the federation.
-  - `module` (string): The module of the federation.
-
-#### log
-
-Logs an event of a specified type.
-
-- **Parameters**: 
-  - `detail` (any): Details of the event to log.
-  - `loggerType` (string): The type of log event.
-
-## Components
-
-### DreamMFLogListener
-
-```typescript
-const DreamMFLogListener = ({ config }: LogListenerProps) => { /* implementation */ };
-```
-
-#### Props
-
-- **config**: Configuration object of type `LogConfig`.
-
-#### Description
-
-A component that sets up event listeners for log events based on the provided configuration. It automatically registers and unregisters event listeners on mount and unmount.
-
-## Functions (Listener Management)
-
-### RegisterListeners
-
-```typescript
-const RegisterListeners = (config: LogConfig) => { /* implementation */ };
-```
-
-Registers event listeners based on the provided `LogConfig`.
-
-- **Parameters**:
-  - `config` (LogConfig): Configuration object for logging.
-
-### DeregisterListeners
-
-```typescript
-const DeregisterListeners = (config: LogConfig) => { /* implementation */ };
-```
-
-Deregisters event listeners based on the provided `LogConfig`.
-
-- **Parameters**:
-  - `config` (LogConfig): Configuration object for logging.
-```
-
-This documentation provides a detailed overview of the logging package, including interface definitions, constants, functions, and their usages.
+This documentation provides an overview and guidelines on how to use the Dream.mf logging package to integrate logging and monitoring capabilities into your applications and federated modules.

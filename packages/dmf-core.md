@@ -23,10 +23,10 @@ This package is responsible for creating the runtime object in the browser calle
 
 ## Installation
 
-To install the core package, you can use npm or yarn:
+To install this package, you can use npm or yarn:
 
 ```shell
-npm install @dream-mf-core
+npm install @dream-mf/core
 ```
 
 or

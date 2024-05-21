@@ -32,6 +32,8 @@ This basic overview is designed to give users an introduction to the Dream.mf fr
 
 - [Cloud Architecture in AWS](/arch/cloud-aws.md)
 - [Cloud Architecture in Azure](/arch/cloud-azure.md)
+- [NextJS Framework](/frameworks/next.md)
+- [Remix Framework](/frameworks/remix.md)
 - [Core Runtime Library](/packages/dmf-core.md)
 - [Logging Library](/packages/dmf-logging.md)
 - [Bundlers Library](/packages/dmf-bundlers.md)

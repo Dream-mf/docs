@@ -1,7 +1,3 @@
-Sure! Below is the documentation for the `bundler` package of your `Dream.mf` framework in Markdown format.
-
----
-
 # Dream.mf Bundler Package Documentation
 
 The `bundler` package contains a base configuration of Webpack or Rspack which will help you get your microfrontend off the ground. All configurations are extendable using spread operators and you are free to override any of the defaults provided. Out of the box, it offers basic static React functionality with `react-oidc-context`, `react-router`, `react-query`, and CSS/SASS/CSS-Modules support. It also uses `esbuild` as the default loader with JSX and TSX support.
@@ -136,11 +132,3 @@ const config = withBaseRSPack({
 
 module.exports = config;
 ```
-
-## Types
-
-Currently, this documentation does not cover specific TypeScript types. Please refer to the TypeScript definitions within the source code for detailed type information.
-
----
-
-This should give you a comprehensive guide on how to use the `bundler` package within your `Dream.mf` framework, covering both Webpack and Rspack configurations for both host and remote applications.

@@ -1,5 +1,3 @@
-Sure, here is the updated documentation with the table of contents section:
-
 # Dream.mf Logging Package Documentation
 
 The Dream.mf logging package provides logging and log listener functionality that can be used independently in your application or within other Dream.mf packages. This includes a log listener for the host, configured against your log aggregator, and supports multiple aggregators. This allows your remote to use the log client directly with minimal setup.
@@ -234,5 +232,3 @@ const App = () => (
 // Usage Example of Log Client
 DreamMFLogClient.logGeneral({ message: "Application started" });
 ```
-
-This documentation provides an overview and guidelines on how to use the Dream.mf logging package to integrate logging and monitoring capabilities into your applications and federated modules.

@@ -1,7 +1,3 @@
-Sure, here is the documentation with sample code snippets included below each section.
-
----
-
 # Dream.mf Core Package
 
 The `core` package is a foundational part of the Dream.mf framework. Engineers typically won't use this library directly in their applications, but it is available for those creating plugins for the Dream.mf framework.
@@ -334,7 +330,3 @@ Error message for when the Dream.mf runtime is not found.
 ```typescript
 export const RuntimeNotFoundError = "Dream.mf Runtime was not detected. Attempting initialization.";
 ```
-
----
-
-This documentation outlines the basic usage and API of the Dream.mf `core` package. For more detailed information, please refer to the source code and the associated comments.

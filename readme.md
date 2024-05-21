@@ -20,13 +20,11 @@ The repository is divided into several packages, each responsible for a specific
 
 ## Getting Started
 
-To get started with Dream.mf, clone the repository and follow the installation instructions provided in each package's README file. The following sections will guide you through the core concepts and how to utilize the framework effectively.
-
-This basic overview is designed to give users an introduction to the Dream.mf framework, highlighting its purpose and high-level structure. You can expand on this document by providing more detailed usage instructions, examples, and API references as necessary. If you share links to specific TypeScript files, I can generate more detailed documentation for each component or utility.
+To get started with Dream.mf, The following sections will guide you through the core concepts and how to utilize the framework effectively.
 
 ## Sample Projects
 
-We have a sample react application which shows you basic examples of Dream.mf packages:
+This basic overview is designed to give users an introduction to the Dream.mf framework, highlighting its purpose and high-level structure. You can expand on this document by providing more detailed usage instructions, examples, and API references as necessary.
 
 - [Sample React Microfrontend](https://github.com/Dream-mf/sample-project-react)
 

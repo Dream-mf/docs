@@ -1,5 +1,3 @@
-
-
 # Microfrontends Hosted in AWS Using S3
 
 In AWS, microfrontends can be efficiently hosted using S3, leveraging its capabilities for hosting static websites. This architecture typically involves the following components:

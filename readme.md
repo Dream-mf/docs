@@ -32,5 +32,6 @@ We have a sample react application which shows you basic examples of Dream.mf pa
 
 ## Glossary
 
+- AWS Architecture: [Cloud Architecture in AWS](/arch/cloud-aws.md)
 - Package: [Core Runtime Library](/packages/dmf-core.md)
 - Package: [Logging Library](/packages/dmf-logging.md)

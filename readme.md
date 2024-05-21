@@ -30,10 +30,10 @@ This basic overview is designed to give users an introduction to the Dream.mf fr
 
 ## Glossary
 
-- AWS Architecture: [Cloud Architecture in AWS](/arch/cloud-aws.md)
-- Azure Architecture: [Cloud Architecture in Azure](/arch/cloud-azure.md)
-- Package: [Core Runtime Library](/packages/dmf-core.md)
-- Package: [Logging Library](/packages/dmf-logging.md)
-- Package: [Bundlers Library](/packages/dmf-bundlers.md)
-- Package: [OIDC Authentication Library](/packages/dmf-oidc.md)
-- Package: [Module Federation Utilities Library](/packages/dmf-utilities.md)
+- [Cloud Architecture in AWS](/arch/cloud-aws.md)
+- [Cloud Architecture in Azure](/arch/cloud-azure.md)
+- [Core Runtime Library](/packages/dmf-core.md)
+- [Logging Library](/packages/dmf-logging.md)
+- [Bundlers Library](/packages/dmf-bundlers.md)
+- [OIDC Authentication Library](/packages/dmf-oidc.md)
+- [Module Federation Utilities Library](/packages/dmf-utilities.md)
